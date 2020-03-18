@@ -1,0 +1,46 @@
+<!DOCTYPE >
+<html>
+    <body>
+        <button id="debounce">debounce点我</button>
+        <button id="throttle">throttle点我</button>
+    
+    </body>
+    <script>
+        
+        var a = Math.random(100);
+        function test(num) {
+            console.log(num);
+        }
+        function debounce(time, callback) {
+            var timer;
+            return (...args) => {
+                if(time) {
+                    clearTimeout(timer);
+                }
+                timer = setTimeout(() => {
+                    callback.apply(this, args);
+                }, time)
+            }
+            
+        }
+        document.querySelector('#debounce').addEventListener('click', debounce(1000, () => test(a)))
+
+        
+        function throttle(time, callback) {
+            var flag = true;
+            return (...args) => {
+                if(!flag)return
+                flag = false;
+                setTimeout(() => {
+                    callback.apply(this, args);
+                    flag = true;
+                }, time);
+            }
+            
+        }
+        
+        document.querySelector('#throttle').addEventListener('click', throttle(1000, () => test(a)))
+
+
+    </script>
+</html>
