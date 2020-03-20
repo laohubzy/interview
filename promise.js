@@ -35,32 +35,25 @@ function cook(thing) {
 //     console.log('lalala')
 // })
 
-// buy('儿子').then(cook).then(res => {
-//     console.log(res)
-// })
-// .catch(e => {
-//     console.log(e)
-// }).finally(e => {
-//     console.log('lalala')
-// })
+
 
 // all  只要有一个reject 就走catch
 // 按顺序执行 前一个执行完 再执行下一个  返回的是与执行顺序相同的结果
 // 传入的是一个promise 方法   
 // buy('儿子') 会return 一个promise
-const all = Promise.all([buy('儿子'), cook('da')]).then(res => {
-    console.log(res)
-}).catch(err => {
-    console.log(err)
-})
+// const all = Promise.all([buy('儿子'), cook('da')]).then(res => {
+//     console.log(res)
+// }).catch(err => {
+//     console.log(err)
+// })
 
 
 // race 是执行最快的先返回
-const race = Promise.race([buy('儿子'), cook('da')]).then(res => {
-    console.log(res)
-}).catch(err => {
-    console.log(err)
-})
+// const race = Promise.race([buy('儿子'), cook('da')]).then(res => {
+//     console.log(res)
+// }).catch(err => {
+//     console.log(err)
+// })
 
 
 // buy('父亲').then(cook).
