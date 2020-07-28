@@ -22,13 +22,13 @@ Function.prototype.myCall = function(target) {
     for(var i = 1; i < arguments.length; i++) {
         args.push(arguments[i])
     }
-    console.log(this)
+    console.log('target', target)
     // this = obj
     target.fn(...args);
     delete target.fn;
 }
 
-// doSomething.myCall(obj, '吃饭')
+doSomething.myCall(obj, '吃饭')
 // console.log(obj)
 
 Function.prototype.myApply = function(target, ...args) {
@@ -46,5 +46,5 @@ Function.prototype.myBind = function(target) {
     }
 }
 
-const test = doSomething.myBind(obj)
-test('吃饭')
+// const test = doSomething.myBind(obj)
+// test('吃饭')
