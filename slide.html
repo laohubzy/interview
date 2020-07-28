@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<body>
+    <div class="slide">
+        <button onclick="slideIn()">点击滑动</button>
+        <div class="box">
+        </div>
+    </div>
+    <script>
+        // 第一题
+        function slideIn() {
+            const box = document.querySelector('.box')
+            if(!box.className.includes('slide-in')) {
+                box.className += ' slide-in'
+            }
+        }
+    </script>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background: pink;
+            position: absolute;
+            transform: translate(-100px,0); 
+            transition:transform ease 2s ;
+        }
+        .slide-in {
+            transform: translate(10px, 0); 
+            transition:transform ease 2s;
+        }
+    </style>
+    <script>  
+        // 第二题
+        function getIntersection(arr1, arr2) {
+            return arr1.filter(i => arr2.includes(i))
+        }
+        function getIntersectionMultiple(...arrs) {
+            const list = Array.from(arrs)
+            const result = list.reduce((total, next) => {
+                return getIntersection(total, next)
+            })
+            return [...new Set(result)]
+        }
+        // 第三题
+        function getAllNumber(str) {
+            const reg = /(\-)?\d+(\.\d+)?/g
+            const reslut = str.match(reg)
+            if (!reslut) {
+                return []
+            }
+            return [...new Set(reslut.map(i => Math.round(i * 100) / 100))]
+        }
+    </script>
+</body>
+</html>
